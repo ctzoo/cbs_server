@@ -1,0 +1,9 @@
+{
+  "cbs": {
+    "clientId": "clientId",
+    "userId": "userId",
+    "cbsUrl": "http://localhost:3001/cbs",
+    "username": "cuitao",
+    "password": "cuitaopwd"
+  }
+}

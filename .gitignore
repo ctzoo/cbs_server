@@ -1,0 +1,6 @@
+.idea
+.vscode
+node_modules
+storage_*
+*.log
+package-lock.json
