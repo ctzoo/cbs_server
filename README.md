@@ -11,7 +11,7 @@
 
 - DESCRIPTION  
 
-  Retrieves Person data from MyInfo based on UIN/FIN using authorisation token. Note - null values indicate that the field is unavailable
+  Obtaining CBS(credit bureau singapore) data from the HTTP request
 
 - HEADERS  
 
@@ -48,7 +48,7 @@
   | 400    | Bad Request           | param invalid error                        |
   | 500    | Internal Server Error | error message will be in the response body |
 
- - Request Example  
+- Request Example  
 
   ```
   curl -X POST http://localhost:8080/cbs \
@@ -56,8 +56,14 @@
     -d '{"accountType":"S","amount":"000000000003000.00SGD","enquiryReference":"A2018010000","enquiryType":"NA","productType":"UC","idType":"NRIC","idNumber":"S1234567Z","customerName":"TAN A B","dateOfBirth":"15091978","gender":"F","maritalStatus":"S","applicantType":"P","addressType":"RESID","addressFormat":"SL","postalCode":"999999","streetName":"SHENTON WAY","stateCityName":"Singapore","countryCode":"SGP"}'
   ```
 
- - Response Example  
+- Response Example  
 
   ```
   
   ```
+
+- Response Data  
+  | params | format  | remarks                               |
+  | ------ | ------- | ------------------------------------- |
+  | isErr  | Boolean | When true returns, getting data error |
+  | res    | Object  | A Plain Object                        |
