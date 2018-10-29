@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const logger = require('./logger')
 const pkg = require('./pkg')
 const unpkg = require('./unpkg')
 const cbsFetch = require('./fetch')
@@ -84,10 +85,12 @@ app.post(
           info.res = data.res
         }
       } catch (e) {
+        logger.warn('Get CBS data error >>>', e)
         return res.status(500).send(e.message)
       }
       res.send(unpkg(info.res))
     } else {
+      logger.warn('Client request params error >>>', errors.array())
       res.status(400).send(errors.array())
     }
   }

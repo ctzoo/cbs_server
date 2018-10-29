@@ -1,5 +1,6 @@
 const fetch = require('axios').default
 const storage = require('./storage')
+const logger = require('./logger')
 
 module.exports = async function cbsFetch(data) {
   const config = await storage.getFetchSetting()
@@ -8,7 +9,7 @@ module.exports = async function cbsFetch(data) {
     .replace('{userId}', config.userId)
     .replace('{runNo}', config.runNo)
 
-  console.log('begin send:\n' + cbsReq)
+  logger.info('Fetch begin send:\n' + cbsReq)
   const res = await fetch(config.cbsUrl, {
     method: 'POST',
     data: cbsReq,
@@ -20,6 +21,6 @@ module.exports = async function cbsFetch(data) {
       'Content-Type': 'text/html;charset=UTF-8',
     },
   })
-  console.log('revice:\n' + res.data)
+  logger.info('Fetch revice:\n' + res.data)
   return res.data
 }
