@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const config = require('config')
 const logger = require('./logger')
 const pkg = require('./pkg')
 const unpkg = require('./unpkg')
@@ -14,7 +15,16 @@ const app = express()
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send('Hello word!')
+  res.send('Hello,This is CBS Server')
+})
+
+app.get('/list', (req, res) => {
+  const key = req.query.key
+  if (key === config.get('key')) {
+    storage.getCbsRefNos().then(keys => res.send(keys))
+  } else {
+    res.send('Hello,This is CBS Server')
+  }
 })
 
 const enumVaild = arr => value => arr.indexOf(value) >= 0

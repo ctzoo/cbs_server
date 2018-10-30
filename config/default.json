@@ -6,5 +6,6 @@
     "username": "cuitao",
     "password": "cuitaopwd"
   },
+  "key": "key",
   "logLevel": "INFO"
 }
