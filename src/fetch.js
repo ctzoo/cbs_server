@@ -1,6 +1,11 @@
 const fetch = require('axios').default
+const https = require('https')
 const storage = require('./storage')
 const logger = require('./logger')
+
+const agent = new https.Agent({
+  rejectUnauthorized: false
+})
 
 module.exports = async function cbsFetch(data) {
   const config = await storage.getFetchSetting()
@@ -20,6 +25,7 @@ module.exports = async function cbsFetch(data) {
     headers: {
       'Content-Type': 'text/html;charset=UTF-8',
     },
+    httpsAgent: agent,
   })
   logger.info('Fetch revice:\n' + res.data)
   return res.data

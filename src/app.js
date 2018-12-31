@@ -89,7 +89,7 @@ app.post(
         const data = await storage.getCbsEnquiryInfo(info.id, info.req)
         if (data.isErr) {
           const reqData = await cbsFetch(info.req)
-          info.res = reqData
+          info.res = unpkg(reqData)
           await storage.saveCbsEnquiryInfo(info.id, info)
         } else {
           info.res = data.res
@@ -98,7 +98,7 @@ app.post(
         logger.warn('Get CBS data error >>>', e)
         return res.status(500).send(e.message)
       }
-      res.send(unpkg(info.res))
+      res.send(info.res)
     } else {
       logger.warn('Client request params error >>>', errors.array())
       res.status(400).send(errors.array())
