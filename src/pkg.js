@@ -19,8 +19,19 @@ const xlsxFieldNames = [
   'postalCode',
   'streetName',
   'stateCityName',
-  'countryCode'
+  'countryCode',
+  'blkHseBldgNumber',
+  'storeyNumber',
+  'unitNumber',
+  'buildingName'
 ]
+
+const reqXmlNoRequired = {
+  blkHseBldgNumber: '<CAD1>{blkHseBldgNumber}</CAD1>',
+  storeyNumber: '<CAD2>{storeyNumber}</CAD2>',
+  unitNumber: '<CAD3>{unitNumber}</CAD3>',
+  buildingName: '<CAD5>{buildingName}</CAD5>',
+}
 
 const reqXml = `<?xml version="1.0" encoding="utf-8"?>
 <REQUEST>
@@ -65,6 +76,10 @@ const reqXml = `<?xml version="1.0" encoding="utf-8"?>
             <CAD4>{streetName}</CAD4>
             <CAD8>{stateCityName}</CAD8>
             <CAD9>{countryCode}</CAD9>
+            {blkHseBldgNumber}
+            {storeyNumber}
+            {unitNumber}
+            {buildingName}
           </CADR>
           <CMAR>{maritalStatus}</CMAR>
         </CONSUMER>
@@ -81,5 +96,8 @@ module.exports = (data) => {
   const amt = data.amount.replace(/^0*/, '')
   data.amount = amt.slice(0, amt.length - 3)
   // console.log(data)
-  return Object.keys(data).reduce((s, e) => s.replace(`{${e}}`, data[e]), reqXml)
+  const reqXmlTmp = Object.keys(reqXmlNoRequired)
+    .reduce((s, e) => s.replace(`{${e}}`, (data[e] && data[e] !== '') ? reqXmlNoRequired[e] : ''), reqXml)
+  // console.log(reqXmlTmp)
+  return Object.keys(data).reduce((s, e) => s.replace(`{${e}}`, data[e]), reqXmlTmp)
 }

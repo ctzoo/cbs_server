@@ -21,27 +21,31 @@
   
   "size" indicates the maximum length of the field allowed.
 
-  | name             | type   | format                                   | size   | remarks                   |
-  | ---------------- | ------ | ---------------------------------------- | ------ | ------------------------- |
-  | accountType      | string |                                          | 5      | Account Type              |
-  | amount           | string | amount + currency                        | 15,2+5 | Amount                    |
-  | enquiryReference | string |                                          | 50     | Enquiry Reference         |
-  | enquiryType      | string | 'NA', 'RV', 'GT', 'CE', 'B0', 'B1', 'B2' |        | Enquiry Type              |
-  | productType      | string | 'UC', 'UO', 'SC', 'DC'                   |        | Product Type              |
-  | idType           | string | 'EMPL', 'NRIC', 'PASS', 'UNKN', 'WORK'   |        | ID Type                   |
-  | idNumber         | string |                                          | 20     | ID Number                 |
-  | customerName     | string |                                          | 50     | Customer Name             |
-  | dateOfBirth      | string | DDMMYYYY                                 | 8      | Date of birth             |
-  | gender           | string | 'M', 'F', 'U'                            |        | Gender                    |
-  | maritalStatus    | string | 'D', 'M', 'P', 'S', 'U', 'W'             |        | Marital Status            |
-  | applicantType    | string |                                          | 5      | Applicant type            |
-  | addressType      | string | 'RESID', 'WORK', 'POST', 'U'             | 5      | Address Type (Consumer)   |
-  | addressFormat    | string | 'SL', 'SF'                               |        | Address Format - Consumer |
-  | postalCode       | string |                                          | 9      | Postal Code - Consumer    |
-  | streetName       | string |                                          | 160    | Street Name               |
-  | stateCityName    | string |                                          | 20     | State City Name           |
-  | countryCode      | string |                                          | 3      | Country Code              |
-
+  | name             | type   | format                                   | size   | remarks                                            |
+  | ---------------- | ------ | ---------------------------------------- | ------ | -------------------------------------------------- |
+  | accountType      | string |                                          | 5      | Account Type                                       |
+  | amount           | string | amount + currency                        | 15,2+5 | Amount                                             |
+  | enquiryReference | string |                                          | 50     | Enquiry Reference                                  |
+  | enquiryType      | string | 'NA', 'RV', 'GT', 'CE', 'B0', 'B1', 'B2' |        | Enquiry Type                                       |
+  | productType      | string | 'UC', 'UO', 'SC', 'DC'                   |        | Product Type                                       |
+  | idType           | string | 'EMPL', 'NRIC', 'PASS', 'UNKN', 'WORK'   |        | ID Type                                            |
+  | idNumber         | string |                                          | 20     | ID Number                                          |
+  | customerName     | string |                                          | 50     | Customer Name                                      |
+  | dateOfBirth      | string | DDMMYYYY                                 | 8      | Date of birth                                      |
+  | gender           | string | 'M', 'F', 'U'                            |        | Gender                                             |
+  | maritalStatus    | string | 'D', 'M', 'P', 'S', 'U', 'W'             |        | Marital Status                                     |
+  | applicantType    | string |                                          | 5      | Applicant type                                     |
+  | addressType      | string | 'RESID', 'WORK', 'POST', 'U'             | 5      | Address Type (Consumer)                            |
+  | addressFormat    | string | 'SL', 'SF'                               |        | Address Format - Consumer                          |
+  | postalCode       | string |                                          | 9      | Postal Code - Consumer                             |
+  | streetName       | string |                                          | 160    | Street Name                                        |
+  | stateCityName    | string |                                          | 20     | State City Name                                    |
+  | countryCode      | string |                                          | 3      | Country Code                                       |
+  | blkHseBldgNumber | string |                                          | 7      | Block/House/Building/Godown Number (Not Mandatory) |
+  | storeyNumber     | string |                                          | 4      | Storey Number (Not Mandatory)                      |
+  | unitNumber       | String |                                          | 7      | Unit Number (Not Mandatory)                        |
+  | buildingName     | string |                                          | 45     | Building Name/Post Office Name (Not Mandatory)     |
+  
 - RESPONSES  
 
   | status | type                  | format                                     |
